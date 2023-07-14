@@ -1,0 +1,4 @@
+include README.md
+recursive-include octoprint_slicerthumb/templates *
+recursive-include octoprint_slicerthumb/translations *
+recursive-include octoprint_slicerthumb/static *
