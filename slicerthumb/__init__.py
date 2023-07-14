@@ -122,8 +122,8 @@ class SlicerthumbPlugin(octoprint.plugin.StartupPlugin,
 				type="github_release",
 				user="wummeke",
 				repo="OctoPrint-Slicerthumb",
-				# current=self._plugin_version,
-				current = "0.1.0",
+				current=self._plugin_version,
+				#current = "0.1.1",
 
 				# update method: pip
 				pip="https://github.com/wummeke/OctoPrint-Slicerthumb/archive/{target_version}.zip"
