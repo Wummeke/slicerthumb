@@ -1,6 +1,6 @@
 # coding=utf-8
 from __future__ import absolute_import
-from os import path
+from os import path, pardir
 import socket
 
 ### (Don't forget to remove me)
@@ -23,7 +23,7 @@ class SlicerthumbPlugin(octoprint.plugin.StartupPlugin,
         self.mqtt_basetopic = "octoprint/"
         self.mqtt_plugintopic = "slicerthumb"
         self.mqtttopic = ""
-        self.plugins_basepath = "/home/pi/.octoprint/data"
+        self.plugins_basepath = "~/.octoprint/data"
         self.tumbnail_plugin_paths = ["prusaslicerthumbnails",
                                         "UltimakerFormatPackage"]
 
@@ -37,8 +37,14 @@ class SlicerthumbPlugin(octoprint.plugin.StartupPlugin,
         )
 
     ##~~ StartupPlugin mixin
+    def _get_basepath(self):
+        datapath = self.get_plugin_data_folder()
+        basepath = path.abspath(path.join(datapath, pardir))
+        return basepath
 
     def on_startup(self, host, port):
+        self.plugins_basepath = self._get_basepath()
+        self._logger.debug(self.plugins_basepath)
         if self._settings.get(["mqtt_basetopic"]) == "":
             self._settings.set(["mqtt_basetopic"], self._settings.global_get(["plugins","mqtt","publish", "baseTopic"]))
             self._settings.save()

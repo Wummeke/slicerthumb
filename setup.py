@@ -14,11 +14,11 @@ plugin_package = "octoprint_slicerthumb"
 plugin_name = "OctoPrint-Slicerthumb"
 
 # The plugin's version. Can be overwritten within OctoPrint's internal data via __plugin_version__ in the plugin module
-plugin_version = "0.1.3"
+plugin_version = "0.1.4"
 
 # The plugin's description. Can be overwritten within OctoPrint's internal data via __plugin_description__ in the plugin
 # module
-plugin_description = """publish slicerthumbnail to MQTT compatible with Cura and Prusaslicer"""
+plugin_description = """publish slicerthumbnail to MQTT. Compatible with jneilliii's UltimakerFormatPackage and PrusaSlicerThumbnails plugins"""
 
 # The plugin's author. Can be overwritten within OctoPrint's internal data via __plugin_author__ in the plugin module
 plugin_author = "Wummeke"
